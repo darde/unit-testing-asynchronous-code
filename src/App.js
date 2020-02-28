@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import fetchPosts from './services/fetchPosts';
+import Container from './styles/App';
 
 function App() {
+  const [posts, setPosts] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const getPosts = async () => {
+      const results = await fetchPosts();
+      if (mounted) {
+        setPosts(results);
+      }
+    }
+
+    getPosts();
+    return () => { mounted = false; }
+  }, [])
+
+  const filterTenFirstResults = () => setPosts(posts.slice(0,10));
+
+  if (!posts) {
+    return (
+      <span>Loading...</span>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container>
+      <button onClick={filterTenFirstResults}>Filter</button>
+      <ul data-testid="list">
+        {
+          posts.map(post => <li key={post.id}>{post.title}</li>)
+        }
+      </ul>
+    </Container>
+  )
 }
 
 export default App;
