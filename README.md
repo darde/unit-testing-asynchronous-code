@@ -1,8 +1,12 @@
-## Unit testing asynchronous code
+# Testing asynchronous code with Jest and Testing Library React
 
-This is a small project developed to aim developers to understand how to test
+This is a small project developed to help developers to understand how to test
 asynchronous code with [Jest](https://medium.com/r/?url=https%3A%2F%2Fjestjs.io%2F) and [Testing-library/react](https://medium.com/r/?url=https%3A%2F%2Ftesting-library.com%2Fdocs%2Freact-testing-library%2Fintro). Also this brings some
 concepts of test doubles such as Mocks and Stubs.
+
+You can use this repo following my article on Medium [Testing asynchronous code with Jest and Testing Library React](https://medium.com/rd-shipit/testing-asynchronous-code-with-jest-and-testing-library-react-cfc185d7bd78).
+
+If you want to know more about "Test Doubles", visit my related article on Medium, [Test Doubles (Mocks, Stubs, Fakes, Spies e Dummies)](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
